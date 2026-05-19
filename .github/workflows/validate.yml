@@ -34,7 +34,7 @@ jobs:
             echo "Expected 28 skill zips, found $count"
             exit 1
           fi
-          echo "✓ All 28 skills packaged successfully"
+          echo "All 28 skills packaged successfully"
       
       - name: Check install script syntax
         run: bash -n install.sh

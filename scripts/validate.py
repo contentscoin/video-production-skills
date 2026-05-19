@@ -24,6 +24,25 @@ RESET = "\033[0m"
 NAME_PATTERN = re.compile(r"^[a-z][a-z0-9-]*$")
 
 
+def safe_symbol(symbol: str, fallback: str) -> str:
+    """Return a console-safe symbol for Windows legacy encodings."""
+    encoding = sys.stdout.encoding or "utf-8"
+    if "UTF" not in encoding.upper():
+        return fallback
+    try:
+        symbol.encode(encoding)
+        return symbol
+    except UnicodeEncodeError:
+        return fallback
+
+
+OK = safe_symbol("✓", "[OK]")
+FAIL = safe_symbol("✗", "[FAIL]")
+ARROW = safe_symbol("└─", "->")
+SEPARATOR = safe_symbol("─", "-")
+DOT = safe_symbol("·", "-")
+
+
 def parse_frontmatter(content: str) -> dict:
     """Parse YAML frontmatter from SKILL.md."""
     if not content.startswith("---"):
@@ -126,22 +145,22 @@ def main():
         ok, errors = validate_skill(skill_md)
         
         if ok:
-            print(f"  {GREEN}✓{RESET} {rel_path}")
+            print(f"  {GREEN}{OK}{RESET} {rel_path}")
             passed += 1
         else:
-            print(f"  {RED}✗{RESET} {rel_path}")
+            print(f"  {RED}{FAIL}{RESET} {rel_path}")
             for err in errors:
-                print(f"      {RED}└─{RESET} {err}")
+                print(f"      {RED}{ARROW}{RESET} {err}")
             failed += 1
             all_errors.append((rel_path, errors))
     
     print()
-    print(f"{'─' * 60}")
+    print(f"{SEPARATOR * 60}")
     if failed == 0:
-        print(f"{GREEN}✓ All {passed} skill(s) valid.{RESET}")
+        print(f"{GREEN}{OK} All {passed} skill(s) valid.{RESET}")
         sys.exit(0)
     else:
-        print(f"{GREEN}✓ {passed} passed{RESET} · {RED}✗ {failed} failed{RESET}")
+        print(f"{GREEN}{OK} {passed} passed{RESET} {DOT} {RED}{FAIL} {failed} failed{RESET}")
         sys.exit(1)
 
 

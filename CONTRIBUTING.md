@@ -25,10 +25,10 @@
 
 ```bash
 git clone https://github.com/contentscoin/video-production-skills.git
-cd vps-skills
+cd video-production-skills
 
-# 기존 스킬 변환 도구 (필요시)
-python3 scripts/convert_skills.py
+# 기존 스킬 변환 도구 (레거시 원본이 있을 때만)
+python3 scripts/convert_skills.py /path/to/legacy/skills
 
 # 패키징
 ./scripts/package.sh
@@ -112,7 +112,7 @@ Claude는 description으로 트리거 결정하니 중요합니다:
 3. **변경**:
    - 스킬 추가 시: `skills/<category>/<name>/SKILL.md` 생성
    - `install.sh`의 `ALL_SKILLS` 배열에 이름 추가
-   - `scripts/convert_skills.py`의 `SKILL_METADATA`에 description 추가 (재변환용)
+   - 레거시 원본을 변환하는 경우 `scripts/convert_skills.py`의 `SKILL_METADATA`에 description 추가
    - `README.md`의 스킬 목록 업데이트
 4. **테스트**:
    ```bash

@@ -234,6 +234,8 @@ qa-review 재실행
 ## 오픈크랩 컨텍스트
 
 근거 자료:
-- 청사진 `skill_blueprint/seedance_video_director_skill.md`의 QA 단계
+- 외부 OpenCrab MCP의 `movie_seedance_pack` 청사진 QA 단계
 - 청사진의 `claim_postproduction_loop`, `claim_evidence_traceability`
 - 시리즈 작업의 QA 이력도 별도 팩으로 관리 가능
+
+청사진 원문은 저장소에 번들하지 않습니다. 근거 확인이 필요하면 OpenCrab MCP에서 `movie_seedance_pack`의 QA, postproduction loop, evidence traceability 노드를 조회합니다.

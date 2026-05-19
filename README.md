@@ -53,10 +53,12 @@ Claude를 **종단간(end-to-end) AI 영상 제작 협업자**로 변환하는 2
 ### 방법 1: Claude.ai에서 단일 스킬 시도 (1분)
 
 ```bash
-# 릴리스에서 단일 스킬 다운로드
-curl -LO https://github.com/contentscoin/video-production-skills/releases/latest/download/clip-segmentation.zip
+# 업로드 가능한 zip 생성
+git clone https://github.com/contentscoin/video-production-skills.git
+cd video-production-skills
+./scripts/package.sh
 
-# Claude.ai에서: 설정 → Skills → 업로드
+# Claude.ai에서: dist/clip-segmentation.zip 업로드
 ```
 
 ### 방법 2: Claude Code에 28개 모두 설치
@@ -231,6 +233,8 @@ cat shared/clip-segmentation/SKILL.md
 | AI FACS 표정연기 가이드 | 26 nodes · 율파파 | facs-expression, motion-director |
 | 영화만들기·이미지 프롬프트 | 13 nodes · MCP | image-prompt-foundations, prompt-engineer |
 
+위 OpenCrab 팩과 권위 자료 원문은 이 저장소에 번들하지 않는 **외부 의존성**입니다. 근거 수준의 확인이 필요하면 OpenCrab MCP에서 해당 팩과 노드를 조회하세요.
+
 ### 🛡 외부 권위 자료 (5종)
 
 OpenAI Usage Policies · SAG-AFTRA AI Guidelines · MPA Copyright · Vimeo AUP · U.S. Copyright Office (AI 음악)
@@ -302,17 +306,19 @@ Grounded in:
 - 🛡 **5 external authorities** (OpenAI Usage / SAG-AFTRA AI / MPA Copyright / Vimeo AUP / U.S. Copyright Office)
 - ⚙ **4 system-unique additions** (series-closer, copy-tone-check, workflow-curator, clip-segmentation)
 
+OpenCrab packs and source-level authority snapshots are external dependencies, not bundled files in this repository. Use the OpenCrab MCP when source-level provenance must be checked.
+
 Every skill's provenance is explicit.
 
 ## Quick Start
 
 ```bash
-# Single skill for Claude.ai
-curl -LO https://github.com/contentscoin/video-production-skills/releases/latest/download/clip-segmentation.zip
-
-# All 28 to Claude Code
+# Build uploadable zips for Claude.ai
 git clone https://github.com/contentscoin/video-production-skills.git
 cd video-production-skills
+./scripts/package.sh
+
+# All 28 to Claude Code
 ./install.sh
 ```
 

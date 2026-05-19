@@ -1,5 +1,6 @@
 # Build artifacts
 dist/
+vps-skills-all.zip
 
 # Python
 __pycache__/

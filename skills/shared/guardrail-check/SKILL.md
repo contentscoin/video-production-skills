@@ -10,7 +10,8 @@ description: 4-Part guardrail for AI video: Korean ad law, AI rights (OpenAI/SAG
 
 ## v0.4 확장 사항
 
-기존 v0.2 가드레일(카테고리별 금지어 + 한국 광고법)에 다음 4개 권위 자료를 흡수:
+기존 v0.2 가드레일(카테고리별 금지어 + 한국 광고법)에 다음 4개 권위 자료를 흡수.
+이 권위 자료의 원문·스냅샷은 저장소에 번들하지 않고, 필요할 때 외부 OpenCrab MCP에서 조회:
 - **OpenAI Usage Policies** (사용 정책)
 - **Vimeo Acceptable Use Policy** (업로드 정책)
 - **MPA(미국영화협회)** Seedance 2.0 침해 경고 (저작권)
@@ -386,12 +387,11 @@ guardrails/
 
 ## 오픈크랩 컨텍스트
 
-근거 자료:
-- `sources/external-snapshots/openai_usage_policies.txt`
-- `sources/external-snapshots/vimeo_guidelines.txt`
-- `sources/external-snapshots/mpa_copyright.txt`
-- `sources/external-snapshots/sag_aftra_ai.txt`
-- `sources/external-snapshots/sag_aftra_seedance.txt`
-- 한국 광고 관련 법규 (자체 정리)
+외부 OpenCrab 의존성:
+- 이 저장소는 정책 원문 스냅샷을 번들하지 않습니다.
+- 근거 확인이 필요하면 OpenCrab MCP에서 `movie_seedance_pack` 및 외부 권위 자료 노드를 조회합니다.
+- 우선 조회할 근거: OpenAI Usage Policies, Vimeo Acceptable Use Policy, MPA copyright/Seedance notice, SAG-AFTRA AI/voice/likeness guidance.
+- OpenCrab MCP를 사용할 수 없으면 현재 스킬 본문은 합성된 가드레일로만 취급하고, 고위험 법무 판단 전 최신 원문 확인을 요청합니다.
+- 한국 광고 관련 법규는 프로젝트별 자체 정리와 최신 법령 확인이 필요합니다.
 
 법규는 변경되므로 분기마다 업데이트 권장.

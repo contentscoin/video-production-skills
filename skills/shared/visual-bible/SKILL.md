@@ -19,8 +19,10 @@ description: Master visual bible for video series. 7 sections: brand, color, typ
 
 ## 청사진 근거
 
-이 스킬은 movie_seedance_pack의 청사진(`skill_blueprint/seedance_video_director_skill.md`)에 명시된
+이 스킬은 외부 OpenCrab MCP의 `movie_seedance_pack` 청사진에 명시된
 **"visual bible"** 산출물에 대응합니다. 청사진의 워크플로우 단계 5("이미지 생성: GPT Image 2로 캐릭터시트, 스타일 바이블, 키프레임, 스토리보드를 만든다")의 핵심 산출물입니다.
+
+청사진 원문은 저장소에 번들하지 않습니다. 근거 확인이 필요하면 OpenCrab MCP에서 `movie_seedance_pack`의 visual bible 또는 seedance video director 청사진 노드를 조회합니다.
 
 ## 비주얼 바이블의 7개 섹션
 

@@ -15,6 +15,18 @@ REPO_DIR="$( cd "$SCRIPT_DIR/.." && pwd )"
 SKILLS_DIR="$REPO_DIR/skills"
 DIST_DIR="$REPO_DIR/dist"
 
+PYTHON_BIN="${PYTHON_BIN:-}"
+if [[ -z "$PYTHON_BIN" ]]; then
+  if command -v python3 > /dev/null 2>&1; then
+    PYTHON_BIN="python3"
+  elif command -v python > /dev/null 2>&1; then
+    PYTHON_BIN="python"
+  else
+    echo "Python 3 is required to package skills."
+    exit 1
+  fi
+fi
+
 GREEN='\033[0;32m'
 BRASS='\033[38;5;179m'
 DIM='\033[2m'
@@ -37,11 +49,29 @@ while IFS= read -r skill_md; do
   # (we want the folder itself to be the skill)
   
   # Create zip with the skill folder as root
-  cd "$(dirname "$skill_dir")"
-  zip -rq "$DIST_DIR/$skill_name.zip" "$skill_name" -x "*.DS_Store"
-  cd - > /dev/null
+  "$PYTHON_BIN" - "$skill_dir" "$skill_name" "$DIST_DIR/$skill_name.zip" <<'PY'
+import sys
+import zipfile
+from pathlib import Path
+
+skill_dir = Path(sys.argv[1])
+skill_name = sys.argv[2]
+zip_path = Path(sys.argv[3])
+
+with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+    for path in sorted(skill_dir.rglob("*")):
+        if not path.is_file() or path.name == ".DS_Store":
+            continue
+        archive.write(path, Path(skill_name) / path.relative_to(skill_dir))
+PY
   
-  size=$(du -k "$DIST_DIR/$skill_name.zip" | cut -f1)
+  size=$("$PYTHON_BIN" - "$DIST_DIR/$skill_name.zip" <<'PY'
+import sys
+from pathlib import Path
+
+print((Path(sys.argv[1]).stat().st_size + 1023) // 1024)
+PY
+)
   echo -e "  ${GREEN}✓${RESET} $skill_name ${DIM}(${size}KB)${RESET}"
   count=$((count + 1))
 done < <(find "$SKILLS_DIR" -name "SKILL.md" -type f | sort)

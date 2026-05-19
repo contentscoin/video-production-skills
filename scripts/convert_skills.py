@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Convert SKILL.md files with descriptions <=200 chars (Claude Skills v1 spec)."""
+"""Convert legacy SKILL.md source files into Claude Skills v1 folders."""
 
+import argparse
 import shutil
 from pathlib import Path
 
@@ -136,8 +137,35 @@ def convert_skill_file(source_path, target_dir, skill_name, metadata):
 
 
 def main():
-    source_root = Path("/home/claude/video-production-system/skills")
-    target_root = Path("/home/claude/vps-skills-github/skills")
+    repo_root = Path(__file__).resolve().parent.parent
+    parser = argparse.ArgumentParser(
+        description="Convert legacy *-SKILL.md files into the repo's skills/ tree."
+    )
+    parser.add_argument(
+        "source_root",
+        nargs="?",
+        type=Path,
+        help="Legacy source directory containing files such as intake-router-SKILL.md.",
+    )
+    parser.add_argument(
+        "--target-root",
+        type=Path,
+        default=repo_root / "skills",
+        help="Destination skills directory. Defaults to ./skills.",
+    )
+    args = parser.parse_args()
+
+    if args.source_root is None:
+        print("No legacy source directory provided; nothing to convert.")
+        print("Existing packaged skills live in ./skills.")
+        print("Usage: python3 scripts/convert_skills.py /path/to/legacy/skills")
+        return
+
+    source_root = args.source_root.resolve()
+    target_root = args.target_root.resolve()
+
+    if not source_root.exists():
+        raise SystemExit(f"Source directory not found: {source_root}")
     
     print("Pre-check description lengths:")
     all_ok = True

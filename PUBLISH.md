@@ -116,7 +116,7 @@ See [INSTALL.md](INSTALL.md). Quick install for Claude Code:
 
 \`\`\`bash
 git clone https://github.com/contentscoin/video-production-skills.git
-cd vps-skills
+cd video-production-skills
 ./install.sh
 \`\`\`
 
@@ -174,7 +174,7 @@ If Anthropic establishes a community skills directory, submit a PR there with a 
 
 ```bash
 # After editing skills in source
-python3 scripts/convert_skills.py    # regenerate target if metadata changed
+python3 scripts/convert_skills.py /path/to/legacy/skills  # only when converting legacy sources
 python3 scripts/validate.py          # verify spec compliance
 ./scripts/package.sh                 # rebuild .zip files
 

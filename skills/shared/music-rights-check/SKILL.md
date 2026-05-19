@@ -23,6 +23,8 @@ guardrail-check Part 2의 한 줄로 다뤄졌던 음악 권리를 별도 스킬
 - U.S. Copyright Office AI 보고서: AI 생성 음원의 저작권 보호 범위
 - SAG-AFTRA AI: 음성 클로닝 동의
 
+원문 근거는 저장소에 번들하지 않습니다. 근거 확인이 필요하면 외부 OpenCrab MCP에서 `movie_seedance_pack` 및 관련 외부 권위 자료 노드를 조회합니다.
+
 ## 음향 자산의 5가지 권리 카테고리
 
 ### 🅰️ Category A: 자체 작곡·녹음 (Self-Composed)
@@ -291,11 +293,11 @@ verification_step:
 
 ## 오픈크랩 컨텍스트
 
-근거 자료:
-- `sources/external-snapshots/vimeo_guidelines.txt` — third-party works 룰
-- U.S. Copyright Office AI 보고서 (movie_seedance_pack 참조)
-- SAG-AFTRA AI 가이드라인 — voice cloning
-- SUNO 등 AI 음원 서비스 약관 (분기마다 재확인)
+외부 OpenCrab 의존성:
+- 이 저장소는 정책 원문 스냅샷을 번들하지 않습니다.
+- 근거 확인이 필요하면 OpenCrab MCP에서 `movie_seedance_pack` 및 외부 권위 자료 노드를 조회합니다.
+- 우선 조회할 근거: Vimeo AUP third-party works 룰, U.S. Copyright Office AI 보고서, SAG-AFTRA AI/voice cloning guidance.
+- SUNO 등 AI 음원 서비스 약관은 서비스별 최신 약관을 분기마다 재확인합니다.
 
 ## ⚠️ 면책 사항
 

@@ -27,13 +27,20 @@ jobs:
         run: python3 scripts/validate.py
       
       - name: Package skills
-        run: ./scripts/package.sh
+        run: |
+          chmod +x scripts/package.sh
+          ./scripts/package.sh
       
       - name: Create bundle of all skills
         run: |
-          cd dist
-          zip -r ../vps-skills-all.zip *.zip
-          cd ..
+          python3 - <<'PY'
+          from pathlib import Path
+          import zipfile
+
+          with zipfile.ZipFile("vps-skills-all.zip", "w", compression=zipfile.ZIP_DEFLATED) as archive:
+              for path in sorted(Path("dist").glob("*.zip")):
+                  archive.write(path, path.name)
+          PY
           ls -la *.zip
       
       - name: Upload artifacts to release
