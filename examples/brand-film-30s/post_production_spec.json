@@ -1,0 +1,372 @@
+{
+  "episode_id": "BF30",
+  "skill_version": "post-production-spec v0.6",
+  "duration_s": 30.0,
+  "aspect": "16:9",
+  "resolution": "1920x1080",
+  "fps": 24,
+  "codec_master": "ProRes 422 HQ",
+  
+  "v06_assembly_required": true,
+  "v06_assembly_note": "8 Seedance 생성 클립 + 1 edit-only segment의 어셈블이 필수. 단일 영상 생성 불가능.",
+  
+  "raw_clips_directory": "clips/",
+  "raw_clips_inventory": [
+    { "clip_id": "CLIP-1", "filename": "CLIP-1_raw.mp4", "duration_s": 4.0, "source": "Seedance 2.0 generation" },
+    { "clip_id": "CLIP-2", "filename": "CLIP-2_raw.mp4", "duration_s": 4.0, "source": "Seedance 2.0 generation" },
+    { "clip_id": "CLIP-3", "filename": "CLIP-3_raw.mp4", "duration_s": 4.0, "source": "Seedance 2.0 generation" },
+    { "clip_id": "CLIP-4", "filename": "CLIP-4_raw.mp4", "duration_s": 4.0, "source": "Seedance 2.0 generation" },
+    { "clip_id": "CLIP-5", "filename": "CLIP-5_raw.mp4", "duration_s": 6.0, "source": "Seedance 2.0 generation" },
+    { "clip_id": "CLIP-6", "filename": "CLIP-6_raw.mp4", "duration_s": 5.0, "source": "Seedance 2.0 generation" },
+    { "clip_id": "CLIP-7", "filename": "CLIP-7_raw.mp4", "duration_s": 4.0, "source": "Seedance 2.0 generation" },
+    { "clip_id": "CLIP-8", "filename": "CLIP-8_raw.mp4", "duration_s": 5.0, "source": "Seedance 2.0 generation" }
+  ],
+  
+  "edit_decision_list": [
+    {
+      "edl_position": "00:00:00:00",
+      "source_clip": "CLIP-1_raw.mp4",
+      "source_in": "00:00:00:00",
+      "source_out": "00:00:03:00",
+      "edit_in": "00:00:00:00",
+      "edit_out": "00:00:03:00",
+      "duration_s": 3.0,
+      "transition_in": "fade_in 12f from black",
+      "transition_out": "dissolve 8f to CLIP-2",
+      "note": "4초 생성된 raw clip에서 처음 3초만 사용. 마지막 24 프레임 트림."
+    },
+    {
+      "edl_position": "00:00:02:24",
+      "source_clip": "CLIP-2_raw.mp4",
+      "source_in": "00:00:00:00",
+      "source_out": "00:00:01:08",
+      "edit_in": "00:00:03:00",
+      "edit_out": "00:00:04:08",
+      "duration_s": 1.33,
+      "transition_in": "dissolve 8f from CLIP-1 (during 00:02:24-00:03:00)",
+      "transition_out": "straight cut to CLIP-3",
+      "note": "4초 raw → 처음 1.33초(32 프레임)만 사용. ECU triple 1번째."
+    },
+    {
+      "edl_position": "00:00:04:08",
+      "source_clip": "CLIP-3_raw.mp4",
+      "source_in": "00:00:00:00",
+      "source_out": "00:00:01:08",
+      "edit_in": "00:00:04:08",
+      "edit_out": "00:00:05:16",
+      "duration_s": 1.33,
+      "transition_in": "straight cut from CLIP-2",
+      "transition_out": "straight cut to CLIP-4",
+      "note": "ECU triple 2번째. 같은 트림 패턴."
+    },
+    {
+      "edl_position": "00:00:05:16",
+      "source_clip": "CLIP-4_raw.mp4",
+      "source_in": "00:00:00:00",
+      "source_out": "00:00:01:08",
+      "edit_in": "00:00:05:16",
+      "edit_out": "00:00:07:00",
+      "duration_s": 1.33,
+      "transition_in": "straight cut from CLIP-3",
+      "transition_out": "dissolve 6f to CLIP-5",
+      "note": "ECU triple 3번째. 피아노 입장 타이밍."
+    },
+    {
+      "edl_position": "00:00:06:18",
+      "source_clip": "CLIP-5_raw.mp4",
+      "source_in": "00:00:00:00",
+      "source_out": "00:00:06:00",
+      "edit_in": "00:00:07:00",
+      "edit_out": "00:00:13:00",
+      "duration_s": 6.0,
+      "transition_in": "dissolve 6f from CLIP-4 (during 00:06:18-00:07:00)",
+      "transition_out": "straight cut to CLIP-6",
+      "note": "Hero shot. 6초 단일 클립 사용 (트림 없음). Manual real-person check 통과 필수."
+    },
+    {
+      "edl_position": "00:00:13:00",
+      "source_clip": "CLIP-6_raw.mp4",
+      "source_in": "00:00:00:00",
+      "source_out": "00:00:05:00",
+      "edit_in": "00:00:13:00",
+      "edit_out": "00:00:18:00",
+      "duration_s": 5.0,
+      "transition_in": "straight cut from CLIP-5",
+      "transition_out": "straight cut to CLIP-7",
+      "note": "Connection two-shot. 5초 단일 클립."
+    },
+    {
+      "edl_position": "00:00:18:00",
+      "source_clip": "CLIP-7_raw.mp4",
+      "source_in": "00:00:00:00",
+      "source_out": "00:00:04:00",
+      "edit_in": "00:00:18:00",
+      "edit_out": "00:00:22:00",
+      "duration_s": 4.0,
+      "transition_in": "straight cut from CLIP-6",
+      "transition_out": "straight cut to CLIP-8",
+      "note": "Still life. 4초 단일 클립."
+    },
+    {
+      "edl_position": "00:00:22:00",
+      "source_clip": "CLIP-8_raw.mp4",
+      "source_in": "00:00:00:00",
+      "source_out": "00:00:05:00",
+      "edit_in": "00:00:22:00",
+      "edit_out": "00:00:27:00",
+      "duration_s": 5.0,
+      "transition_in": "straight cut from CLIP-7",
+      "transition_out": "fade to black 12f",
+      "note": "Dusk resolution. Mirror of CLIP-1."
+    },
+    {
+      "edl_position": "00:00:26:12",
+      "source_clip": "EDIT-ONLY (no Seedance generation)",
+      "edit_in": "00:00:27:00",
+      "edit_out": "00:00:30:00",
+      "duration_s": 3.0,
+      "transition_in": "fade in from black 12f (continues from CLIP-8 fade out)",
+      "transition_out": "end",
+      "content": "Black background + 자막 + 로고 + AI 표시",
+      "note": "후처리 합성 only. Seedance 호출 없음."
+    }
+  ],
+  
+  "text_overlays": [
+    {
+      "id": "text_subtitle_main",
+      "content_ko": "선택은 신중하게, 시간은 깊게",
+      "in_tc": "00:00:27:12",
+      "out_tc": "00:00:30:00",
+      "position": "center_lower_third",
+      "font": "Pretendard SemiBold",
+      "font_size_pt": 48,
+      "color": "#E8E3D7",
+      "letter_spacing": "+50",
+      "shadow": "none (on black background)",
+      "animation_in": "fade 16 frames",
+      "animation_out": "hold to end",
+      "alignment": "center"
+    },
+    {
+      "id": "text_cta",
+      "content_ko": "FMGmember.kr",
+      "in_tc": "00:00:28:12",
+      "out_tc": "00:00:30:00",
+      "position": "center_below_subtitle",
+      "font": "Pretendard Medium",
+      "font_size_pt": 28,
+      "color": "#C9A961",
+      "letter_spacing": "+30",
+      "animation_in": "fade 12 frames",
+      "alignment": "center"
+    },
+    {
+      "id": "text_ai_disclosure",
+      "content_ko": "#광고 #AI생성",
+      "in_tc": "00:00:27:00",
+      "out_tc": "00:00:30:00",
+      "position": "top_right",
+      "font": "Pretendard Regular",
+      "font_size_pt": 18,
+      "color": "#E8E3D7",
+      "opacity": 0.7,
+      "padding": "24px from top + 24px from right",
+      "note": "v0.4 신규 — AI 생성 의무 표시"
+    }
+  ],
+  
+  "logo_overlays": [
+    {
+      "id": "logo_fmgmember",
+      "source": "fmgmember_logo_wordmark.svg",
+      "in_tc": "00:00:27:18",
+      "out_tc": "00:00:30:00",
+      "position": "center_above_subtitle",
+      "scale": "height = 64px",
+      "color_variant": "warm white (#F0EAD8)",
+      "animation_in": "fade 14 frames"
+    }
+  ],
+  
+  "audio_tracks": [
+    {
+      "track_id": "bgm_brand_film",
+      "type": "BGM",
+      "description": "Neoclassical cinematic — solo piano + sustained cello + subtle ambient pad. 72 BPM. Composed specifically for this brand film.",
+      "category": "A. self_composed",
+      "license_status": "PASS_PROVISIONAL_PENDING_CONTRACT",
+      "license_proof_required": "작곡가 양도 계약서",
+      "structure": [
+        { "section": "silence", "in_tc": "00:00:00:00", "out_tc": "00:00:05:00", "peak_db": null, "note": "CLIP-1+S2+S3 동안 BGM 없음" },
+        { "section": "piano_entry", "in_tc": "00:00:05:00", "out_tc": "00:00:10:00", "peak_db": -22, "note": "CLIP-4에서 single piano note fade in, CLIP-5와 함께 sustained" },
+        { "section": "cello_entry", "in_tc": "00:00:10:00", "out_tc": "00:00:18:00", "peak_db": -18, "note": "CLIP-5 중반에 cello 입장, CLIP-6까지" },
+        { "section": "build", "in_tc": "00:00:18:00", "out_tc": "00:00:22:00", "peak_db": -14, "note": "CLIP-7과 함께 BGM 빌드" },
+        { "section": "peak", "in_tc": "00:00:22:00", "out_tc": "00:00:27:00", "peak_db": -12, "note": "CLIP-8에서 정점" },
+        { "section": "resolve", "in_tc": "00:00:27:00", "out_tc": "00:00:30:00", "peak_db": -16, "note": "EDIT-ONLY 구간에서 마지막 piano note + cello fade out" }
+      ],
+      "total_duration": 25,
+      "fade_in_frames": 24,
+      "fade_out_frames": 36,
+      "note": "BGM은 편집 단계에서 8개 클립 위에 한 트랙으로 얹음. Seedance가 클립별로 만들지 않음."
+    },
+    {
+      "track_id": "sfx_birdsong",
+      "type": "Ambience",
+      "in_tc": "00:00:00:00",
+      "out_tc": "00:00:03:00",
+      "applies_to_clips": ["CLIP-1"],
+      "category": "B. royalty_free",
+      "peak_db": -28
+    },
+    {
+      "track_id": "sfx_pen_friction",
+      "type": "SFX",
+      "in_tc": "00:00:03:00",
+      "out_tc": "00:00:04:08",
+      "applies_to_clips": ["CLIP-2"],
+      "category": "B. royalty_free",
+      "peak_db": -20
+    },
+    {
+      "track_id": "sfx_porcelain_tap",
+      "type": "SFX",
+      "in_tc": "00:00:04:20",
+      "out_tc": "00:00:05:16",
+      "applies_to_clips": ["CLIP-3"],
+      "category": "B. royalty_free",
+      "peak_db": -22
+    },
+    {
+      "track_id": "sfx_footsteps_grass",
+      "type": "SFX",
+      "in_tc": "00:00:07:00",
+      "out_tc": "00:00:13:00",
+      "applies_to_clips": ["CLIP-5"],
+      "category": "B. royalty_free",
+      "peak_db": -24
+    },
+    {
+      "track_id": "sfx_wind_fairway",
+      "type": "Ambience",
+      "in_tc": "00:00:07:00",
+      "out_tc": "00:00:18:00",
+      "applies_to_clips": ["CLIP-5", "CLIP-6"],
+      "category": "B. royalty_free",
+      "peak_db": -26
+    },
+    {
+      "track_id": "sfx_subtle_laugh",
+      "type": "SFX (human voice)",
+      "in_tc": "00:00:16:00",
+      "out_tc": "00:00:16:18",
+      "applies_to_clips": ["CLIP-6"],
+      "category": "B. royalty_free (human voice library)",
+      "voice_cloning_check": "NOT_USED — royalty-free recorded human voice only",
+      "peak_db": -20,
+      "note": "SAG-AFTRA 호환"
+    },
+    {
+      "track_id": "sfx_paper_rustle",
+      "type": "SFX",
+      "in_tc": "00:00:19:00",
+      "out_tc": "00:00:19:12",
+      "applies_to_clips": ["CLIP-7"],
+      "category": "B. royalty_free",
+      "peak_db": -28
+    },
+    {
+      "track_id": "sfx_evening_ambient",
+      "type": "Ambience",
+      "in_tc": "00:00:22:00",
+      "out_tc": "00:00:27:00",
+      "applies_to_clips": ["CLIP-8"],
+      "category": "B. royalty_free",
+      "peak_db": -30
+    }
+  ],
+  
+  "color_grade_master": {
+    "reference": "Kodak Vision3 250D film stock simulation",
+    "shadow_lift": "+15 IRE",
+    "midtone_warm": "+8",
+    "highlight_cool": "-5",
+    "contrast": 0.85,
+    "saturation": 0.9,
+    "grain": "35mm 250D simulation, intensity 30%",
+    "halation": "subtle around bright highlights",
+    "applied_to": "모든 8 클립 동일 grade 적용 (편집 단계)",
+    "note": "Seedance 생성 단계에서 이미 룩이 반영됐지만 편집에서 통일 그레이드 한 번 더 적용 (consistency)"
+  },
+  
+  "export_variants": [
+    {
+      "name": "master_16x9_1080p",
+      "resolution": "1920x1080",
+      "aspect": "16:9",
+      "codec": "H.264 high profile",
+      "bitrate_mbps": 12,
+      "use": "회사 공식 채널 마스터"
+    },
+    {
+      "name": "youtube_4k",
+      "resolution": "3840x2160 (upscale)",
+      "aspect": "16:9",
+      "codec": "H.265",
+      "bitrate_mbps": 25,
+      "use": "YouTube 4K (선택)"
+    },
+    {
+      "name": "instagram_feed_1x1",
+      "resolution": "1080x1080",
+      "aspect": "1:1",
+      "codec": "H.264 high profile",
+      "bitrate_mbps": 8,
+      "use": "Instagram 피드 재프레이밍",
+      "reframe_strategy": "center crop. 자막 위치 lower-third → center 재배치."
+    },
+    {
+      "name": "linkedin_company",
+      "resolution": "1920x1080",
+      "aspect": "16:9",
+      "codec": "H.264",
+      "bitrate_mbps": 10,
+      "use": "LinkedIn 회사 페이지"
+    }
+  ],
+  
+  "ai_rights_proof": {
+    "ai_models_used": ["Nano Banana Pro (이미지 생성)", "Seedance 2.0 (영상화 × 8 클립)"],
+    "total_seedance_calls": 8,
+    "real_person_likeness_checks_required": [
+      "CLIP-5 (CHAR-A profile/partial face visibility risk)",
+      "CLIP-6 (CHAR-A + CHAR-BF-COMPANION two-shot)"
+    ],
+    "real_person_likeness_check_method": "Google Lens 역이미지 검색 + 검수자 시각 확인",
+    "music_license_status": "self_composed (PROVISIONAL pending contract)",
+    "voice_cloning_used": false,
+    "platform_disclosure_added": true,
+    "training_data_concern_acknowledged": true,
+    "callaway_at_last_differentiation_required": "CLIP-5 hero shot 우연 닮음 회피 검증"
+  },
+  
+  "production_notes": {
+    "v06_workflow_summary": [
+      "1. 8개 Seedance 클립 생성 (각 4-6초)",
+      "2. 각 클립을 raw_clips_inventory에 저장",
+      "3. edit_decision_list 따라 어셈블 + 트림",
+      "4. BGM·SFX 트랙 어셈블 위에 합성",
+      "5. 텍스트·로고 overlay 합성",
+      "6. 컬러 그레이드 통일",
+      "7. 4종 export"
+    ],
+    "shooting_order_priority": [
+      "1. CLIP-1 + CLIP-8 (같은 위치 다른 시간, character/location 일관성)",
+      "2. CLIP-2 + CLIP-3 + CLIP-4 (ECU triple, seed 42 연속)",
+      "3. CLIP-5 (hero shot, 가장 많은 iteration)",
+      "4. CLIP-6 (two-shot, 캐릭터 일관성 manual check)",
+      "5. CLIP-7 (still life)"
+    ],
+    "qa_priority": "CLIP-5와 CLIP-6은 가장 critical. Real-person likeness check 필수."
+  }
+}

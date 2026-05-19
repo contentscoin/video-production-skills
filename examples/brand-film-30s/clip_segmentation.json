@@ -1,0 +1,195 @@
+{
+  "project_id": "FMGmember_BrandFilm_30s",
+  "skill_version": "clip-segmentation v0.6",
+  "target_duration_s": 30,
+  "single_clip_possible": false,
+  "reason": "30초는 Seedance 2.0의 15초 HARD LIMIT 초과 → 다중 클립 + 편집 필수",
+  
+  "generation_clip_count": 8,
+  "edit_segment_count": 9,
+  "avg_clip_length_s": 6.0,
+  
+  "pattern_used": "Pattern A (Beat-Boundary Cut) + Pattern D (Detail Sequence)",
+  "rationale": "narrative_arc 7비트의 자연 경계를 클립 경계로 사용. ECU triple(S2-S4)은 Pattern D로 각 4초 생성 후 1.33초씩 트림.",
+  
+  "clips": [
+    {
+      "clip_id": "CLIP-1",
+      "seedance_generation_duration_s": 4.0,
+      "edit_final_duration_s": 3.0,
+      "trim_in_frames": 0,
+      "trim_out_frames": 24,
+      "trim_note": "4초 생성 → 마지막 1초 자르고 처음 3초 사용",
+      "contains_shots": ["BF30-S1"],
+      "narrative_beat": "beat_1 Opening Atmosphere",
+      "first_frame_reference": "dawn clubhouse exterior, lights starting to turn on",
+      "last_frame_for_next_clip": "dawn clubhouse exterior, 2 windows lit up",
+      "transition_out": "dissolve 8 frames to CLIP-2",
+      "character_consistency_method": "N/A (no character)",
+      "seed": null,
+      "audio_plan": "distant birdsong + soft wind, NO BGM"
+    },
+    {
+      "clip_id": "CLIP-2",
+      "seedance_generation_duration_s": 4.0,
+      "edit_final_duration_s": 1.33,
+      "trim_in_frames": 0,
+      "trim_out_frames": 64,
+      "trim_note": "4초 생성 → 처음 1.33초만 사용. ECU triple 1번째.",
+      "contains_shots": ["BF30-S2"],
+      "narrative_beat": "beat_2 Ritual (pen)",
+      "first_frame_reference": "ECU on hand holding fountain pen on notebook",
+      "last_frame_for_next_clip": "pen tip at left edge of writing motion",
+      "transition_out": "straight cut to CLIP-3",
+      "character_consistency_method": "character-pool CHAR-A reference + seed 42",
+      "seed": 42,
+      "audio_plan": "pen friction SFX only"
+    },
+    {
+      "clip_id": "CLIP-3",
+      "seedance_generation_duration_s": 4.0,
+      "edit_final_duration_s": 1.33,
+      "trim_in_frames": 0,
+      "trim_out_frames": 64,
+      "trim_note": "4초 생성 → 처음 1.33초만. ECU triple 2번째.",
+      "contains_shots": ["BF30-S3"],
+      "narrative_beat": "beat_2 Ritual (cup)",
+      "first_frame_reference": "ECU on hand lifting porcelain cup from saucer",
+      "last_frame_for_next_clip": "cup back on saucer, hand releasing",
+      "transition_out": "straight cut to CLIP-4",
+      "character_consistency_method": "CHAR-A reference + seed 42 (consistency with CLIP-2)",
+      "seed": 42,
+      "audio_plan": "porcelain tap (2x)"
+    },
+    {
+      "clip_id": "CLIP-4",
+      "seedance_generation_duration_s": 4.0,
+      "edit_final_duration_s": 1.33,
+      "trim_in_frames": 0,
+      "trim_out_frames": 64,
+      "trim_note": "4초 생성 → 처음 1.33초만. ECU triple 3번째.",
+      "contains_shots": ["BF30-S4"],
+      "narrative_beat": "beat_2 Ritual (light reflection)",
+      "first_frame_reference": "ECU on pen with light beam reflection",
+      "last_frame_for_next_clip": "pen with light beam still reflecting, dust particles",
+      "transition_out": "dissolve 6 frames to CLIP-5",
+      "character_consistency_method": "object continuity from CLIP-2",
+      "seed": 42,
+      "audio_plan": "ambient + single piano note fade in"
+    },
+    {
+      "clip_id": "CLIP-5",
+      "seedance_generation_duration_s": 6.0,
+      "edit_final_duration_s": 6.0,
+      "trim_in_frames": 0,
+      "trim_out_frames": 0,
+      "trim_note": "단일 클립, 트림 불필요 (6초는 4-15초 안)",
+      "contains_shots": ["BF30-S5"],
+      "narrative_beat": "beat_3 Departure",
+      "first_frame_reference": "WS CHAR-A walking on misty fairway, golden hour, lower third",
+      "last_frame_for_next_clip": "CHAR-A still walking, slightly further away, push-in complete",
+      "transition_out": "straight cut to CLIP-6",
+      "character_consistency_method": "CHAR-A character-pool reference (outdoor wardrobe)",
+      "seed": null,
+      "audio_plan": "footsteps grass (5x) + wind + piano + cello fade in at 3s",
+      "manual_check_required": "real-person likeness (profile/partial face visibility)"
+    },
+    {
+      "clip_id": "CLIP-6",
+      "seedance_generation_duration_s": 5.0,
+      "edit_final_duration_s": 5.0,
+      "trim_in_frames": 0,
+      "trim_out_frames": 0,
+      "trim_note": "단일 클립, 트림 불필요",
+      "contains_shots": ["BF30-S6"],
+      "narrative_beat": "beat_4 Connection",
+      "first_frame_reference": "WS two-shot CHAR-A + CHAR-BF-COMPANION on shaded path, three-quarter profile",
+      "last_frame_for_next_clip": "both figures still composed, slight head adjustment after laugh",
+      "transition_out": "straight cut to CLIP-7",
+      "character_consistency_method": "CHAR-A + CHAR-BF-COMPANION character-pool references",
+      "seed": null,
+      "audio_plan": "ambient + subtle laugh at 3s (royalty-free human voice, NOT voice cloning) + cello sustained",
+      "manual_check_required": "real-person likeness for both characters"
+    },
+    {
+      "clip_id": "CLIP-7",
+      "seedance_generation_duration_s": 4.0,
+      "edit_final_duration_s": 4.0,
+      "trim_in_frames": 0,
+      "trim_out_frames": 0,
+      "trim_note": "단일 클립, 트림 불필요",
+      "contains_shots": ["BF30-S7"],
+      "narrative_beat": "beat_5 Detail/Conviction",
+      "first_frame_reference": "ECU still life: brass watch + leather card holder + handwritten note, top-down 60°",
+      "last_frame_for_next_clip": "same still life, light slightly warmer",
+      "transition_out": "straight cut to CLIP-8",
+      "character_consistency_method": "N/A (objects only)",
+      "seed": null,
+      "audio_plan": "paper rustle subtle + BGM building"
+    },
+    {
+      "clip_id": "CLIP-8",
+      "seedance_generation_duration_s": 5.0,
+      "edit_final_duration_s": 5.0,
+      "trim_in_frames": 0,
+      "trim_out_frames": 0,
+      "trim_note": "단일 클립, 트림 불필요",
+      "contains_shots": ["BF30-S8"],
+      "narrative_beat": "beat_6 Return/Resolution",
+      "first_frame_reference": "EWS dusk clubhouse exterior (same location as CLIP-1, different time), distant figure walking to entrance",
+      "last_frame_for_next_clip": "figure reaching entrance, building warm with light",
+      "transition_out": "fade to black 12 frames",
+      "character_consistency_method": "CHAR-A reference (distant silhouette, low risk)",
+      "seed": null,
+      "audio_plan": "evening ambient + footsteps fade + BGM peak sustained"
+    }
+  ],
+  
+  "post_clips_edit_only_segment": {
+    "segment_id": "S9",
+    "edit_only": true,
+    "duration_s": 3.0,
+    "time_range": "00:00:27:00 - 00:00:30:00",
+    "no_seedance_generation": "후처리 합성: 검은 배경 + 자막 + 로고",
+    "content": "선택은 신중하게, 시간은 깊게 / FMGmember.kr / #광고 #AI생성"
+  },
+  
+  "edit_assembly_order": [
+    "00:00:00:00 — CLIP-1 [0-3s] (fade in from black)",
+    "00:00:03:00 — dissolve 8f to CLIP-2 [3-4.33s]",
+    "00:00:04:08 — cut to CLIP-3 [4.33-5.66s]",
+    "00:00:05:16 — cut to CLIP-4 [5.66-7s]",
+    "00:00:07:00 — dissolve 6f to CLIP-5 [7-13s]",
+    "00:00:13:00 — cut to CLIP-6 [13-18s]",
+    "00:00:18:00 — cut to CLIP-7 [18-22s]",
+    "00:00:22:00 — cut to CLIP-8 [22-27s]",
+    "00:00:27:00 — fade to black 12f, then S9 edit-only overlay [27-30s]"
+  ],
+  
+  "validation": {
+    "all_clips_under_15s": true,
+    "all_clips_over_4s_minimum": true,
+    "total_edit_duration_matches_target": true,
+    "target_duration_s": 30,
+    "calculated_edit_duration_s": 30,
+    "character_consistency_strategy_defined": true,
+    "audio_plan_per_clip_defined": true,
+    "manual_check_clips_flagged": ["CLIP-5", "CLIP-6"],
+    "verdict": "PASS"
+  },
+  
+  "production_efficiency_notes": [
+    "8 Seedance 생성 호출 필요 (단일 클립 가정 시 1 호출이었음 → 실제로는 불가능했음)",
+    "ECU triple (CLIP-2/3/4)은 같은 세팅·시드 42로 연속 생성 권장",
+    "CLIP-1과 CLIP-8은 같은 위치 다른 시간 — 거울 구조 활용",
+    "CLIP-5가 가장 critical (hero shot + real-person check + Callaway 'At Last' 차별성 검증)",
+    "총 생성 시간 추정: 클립당 1-3분 × 8 = 8-24분 (모델 처리 시간만)"
+  ],
+  
+  "cost_estimation": {
+    "seedance_api_calls": 8,
+    "estimated_failed_attempts_per_clip": 1.5,
+    "total_estimated_calls": 12,
+    "note": "캐릭터 일관성 + manual check 통과까지 재시도 고려"
+  }
+}

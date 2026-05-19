@@ -1,0 +1,128 @@
+{
+  "project_id": "FMGmember_BrandFilm_30s",
+  "audit_date": "2026-05-19",
+  "skill_version": "music-rights-check v0.5",
+  
+  "common_bgm": {
+    "track_id": "bgm_brand_film",
+    "type": "BGM",
+    "description": "Neoclassical cinematic — solo piano + sustained cello + subtle ambient pad, 72 BPM, 25초 길이",
+    "category": "A. self_composed",
+    "creator": "(작곡가 정보 필요 — 외주 또는 클라이언트 측 발주)",
+    "license_proof_needed": "작곡 양도 또는 이용 허락 계약서",
+    "usage_scope_required": "단편 브랜드 필름 (회사 공식 채널 + YouTube + Vimeo + LinkedIn + Instagram 1:1 재프레이밍), 글로벌 무제한 기간",
+    "license_status": "PASS_PROVISIONAL",
+    "notes": [
+      "이 단편은 V1~V6 시리즈 BGM(80 BPM)과 별개의 새 곡 (72 BPM, 더 시네마틱).",
+      "단편 1편이므로 시리즈 계약과 별도 또는 추가 라이선스 필요.",
+      "AI 음원 (SUNO 등) 사용 시: 분기별 약관 재확인 + 상업 사용 플랜 확인 필수."
+    ]
+  },
+  
+  "sfx_and_ambience_tracks": [
+    {
+      "track_id": "sfx_birdsong",
+      "category": "B. royalty_free",
+      "source": "Epidemic Sound or equivalent",
+      "license_status": "PASS_IF_VERIFIED"
+    },
+    {
+      "track_id": "sfx_pen_friction",
+      "category": "B. royalty_free",
+      "license_status": "PASS_IF_VERIFIED"
+    },
+    {
+      "track_id": "sfx_porcelain_tap",
+      "category": "B. royalty_free",
+      "license_status": "PASS_IF_VERIFIED"
+    },
+    {
+      "track_id": "sfx_footsteps_grass",
+      "category": "B. royalty_free",
+      "license_status": "PASS_IF_VERIFIED"
+    },
+    {
+      "track_id": "sfx_wind_fairway",
+      "category": "B. royalty_free",
+      "license_status": "PASS_IF_VERIFIED"
+    },
+    {
+      "track_id": "sfx_subtle_laugh",
+      "category": "B. royalty_free (human voice library)",
+      "high_risk_check": "voice_cloning = NOT_USED",
+      "license_status": "PASS_IF_VERIFIED",
+      "sag_aftra_compliance": "PASS — 실제 인간 녹음 음원, AI 음성 클로닝 아님",
+      "notes": "SAG-AFTRA AI 가이드라인의 voice_cloning 룰에 호환. 실제 음성 라이브러리 출처 명시 필수."
+    },
+    {
+      "track_id": "sfx_paper_rustle",
+      "category": "B. royalty_free",
+      "license_status": "PASS_IF_VERIFIED"
+    },
+    {
+      "track_id": "sfx_evening_ambient",
+      "category": "B. royalty_free",
+      "license_status": "PASS_IF_VERIFIED"
+    }
+  ],
+  
+  "audit_summary": {
+    "total_tracks": 9,
+    "category_distribution": {
+      "A. self_composed": 1,
+      "B. royalty_free": 8
+    },
+    "pass_provisional": 1,
+    "pass_if_verified": 8,
+    "block": 0,
+    "warning": 0,
+    "manual_check_needed": 0
+  },
+  
+  "ai_music_specific_check": {
+    "any_ai_generated_music": false,
+    "any_voice_cloning": false,
+    "us_copyright_office_compliance": "N/A (AI 음원 미사용)",
+    "notes": "BGM은 자체 작곡 + SFX는 royalty-free 라이브러리. AI 음원(SUNO 등) 미사용. SAG-AFTRA 음성 클로닝 이슈 없음."
+  },
+  
+  "platform_compliance": {
+    "youtube_content_id": "PASS_EXPECTED (자체 작곡 BGM)",
+    "vimeo_third_party_works": "all royalty-free SFX + self-composed BGM, 라이선스 증빙으로 PASS 가능",
+    "linkedin_corporate": "PASS (회사 공식 채널 컨텐츠)",
+    "instagram_company": "PASS",
+    "potential_risks": [
+      "YouTube Content ID에서 BGM이 다른 작품과 우연 유사로 자동 검출 가능성 (희박, dispute 가능)",
+      "Vimeo Business 플랜인 경우 라이선스 디스크립션 명시 권장"
+    ]
+  },
+  
+  "verification_checklist_for_client": [
+    {
+      "item": "BGM 작곡 양도/이용 계약서 (이 단편 전용 또는 시리즈+단편 통합)",
+      "scope": "단편 브랜드 필름, 글로벌, 무제한 기간, 모든 디지털 매체, 부분 편집 권리",
+      "deliverable": "PDF 계약서",
+      "status": "PENDING"
+    },
+    {
+      "item": "Epidemic Sound (또는 등가) 활성 구독 + 광고 사용 가능 플랜",
+      "deliverable": "계정 캡처 + 약관",
+      "status": "PENDING"
+    },
+    {
+      "item": "SFX 8종의 라이선스 ID 또는 출처 명시 (특히 human voice laugh 출처)",
+      "deliverable": "스프레드시트",
+      "status": "PENDING"
+    }
+  ],
+  
+  "final_verdict": "PASS_WITH_PENDING_VERIFICATIONS",
+  
+  "next_actions": [
+    "1. BGM 작곡가 결정 (새 작곡 또는 시리즈 작곡가 추가 의뢰)",
+    "2. 작곡 계약서 사본 확보 (단편 전용 또는 시리즈+단편 통합 라이선스)",
+    "3. SFX 라이브러리 구독 활성 확인",
+    "4. 특히 BF30-S6의 subtle laugh 음원의 출처 명시 (royalty-free human voice 인지 확실히)",
+    "5. 송출 시작 전 production_brief에 PASS_CONFIRMED 표기"
+  ]
+}

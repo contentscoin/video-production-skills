@@ -1,0 +1,56 @@
+name: Package Skills on Release
+
+on:
+  release:
+    types: [published]
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Validate skill format
+        run: python3 scripts/validate.py
+      
+      - name: Package skills
+        run: ./scripts/package.sh
+      
+      - name: Create bundle of all skills
+        run: |
+          cd dist
+          zip -r ../vps-skills-all.zip *.zip
+          cd ..
+          ls -la *.zip
+      
+      - name: Upload artifacts to release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*.zip
+            vps-skills-all.zip
+          fail_on_unmatched_files: false
+      
+      - name: Upload artifacts (workflow run)
+        if: github.event_name != 'release'
+        uses: actions/upload-artifact@v4
+        with:
+          name: vps-skills-packaged
+          path: |
+            dist/*.zip
+            vps-skills-all.zip
+          retention-days: 30
